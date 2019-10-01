@@ -5,8 +5,6 @@ import com.google.android.gms.wearable.MessageEvent;
 import com.google.android.gms.wearable.WearableListenerService;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
-//Extend WearableListenerService//
-
 public class MessageService extends WearableListenerService {
 
     @Override
@@ -19,7 +17,6 @@ public class MessageService extends WearableListenerService {
 //...retrieve the message//
 
             final String message = new String(messageEvent.getData());
-
             Intent messageIntent = new Intent();
             messageIntent.setAction(Intent.ACTION_SEND);
             messageIntent.putExtra("message", message);
