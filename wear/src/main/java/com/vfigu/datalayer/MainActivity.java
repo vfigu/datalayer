@@ -44,8 +44,9 @@ public class MainActivity extends WearableActivity {
 
 //Use the same path//
 
+                String message = sentMessageNumber + " : sent from wearable";
                 String datapath = "/my_path";
-                new SendMessage(datapath, onClickMessage).start();
+                new SendMessage(datapath, message).start();
 
             }
         });
@@ -65,7 +66,9 @@ public class MainActivity extends WearableActivity {
 
 //Display the following when a new message is received//
 
-            String onMessageReceived = "I just received a message from the handheld " + receivedMessageNumber++;
+            Bundle bundle = intent.getExtras();
+            String data = bundle.getString("message");
+            String onMessageReceived = "I just received a message from the handheld " + data;
             textView.setText(onMessageReceived);
 
         }

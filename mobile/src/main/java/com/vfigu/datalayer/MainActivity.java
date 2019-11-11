@@ -71,7 +71,9 @@ public class MainActivity extends AppCompatActivity  {
 
 //Upon receiving each message from the wearable, display the following text//
 
-            String message = "I just received a message from the wearable " + receivedMessageNumber++;;
+            Bundle bundle = intent.getExtras();
+            String data = bundle.getString("message");
+            String message = "I just received a message from the wearable " + data;
 
             textview.setText(message);
 
@@ -79,8 +81,7 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     public void talkClick(View v) {
-        String message = "Sending message.... ";
-        textview.setText(message);
+        String message = sentMessageNumber + " : sent from phone";
 
 //Sending a message can block the main UI thread, so use a new thread//
 
